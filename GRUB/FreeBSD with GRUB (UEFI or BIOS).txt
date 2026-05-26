@@ -1,0 +1,23 @@
+=== UEFI ===
+
+#!/bin/sh
+exec tail -n +3 $0
+
+menuentry "FreeBSD" --class freebsd {
+  insmod part_gpt
+  insmod fat
+  set root=(hd0,gpt1)
+  chainloader /EFI/freebsd/loader.efi
+}
+
+=== BIOS ===
+
+#!/bin/sh
+exec tail -n +3 $0
+
+menuentry "FreeBSD" --class freebsd {
+  insmod part_gpt
+  insmod ufs2
+  set root=(hd0,gpt6)
+  kfreebsd /boot/loader
+}
