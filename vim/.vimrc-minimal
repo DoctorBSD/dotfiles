@@ -1,0 +1,62 @@
+" Basic
+set nocompatible
+set encoding=utf-8
+set fileencoding=utf-8
+set shell=/usr/bin/fish
+
+" Search
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+" Tabs / Indent
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+set autoindent
+set smartindent
+
+" UI
+let &t_ut=''
+set t_RV=
+set ttymouse=sgr
+set mouse=a
+set number
+set relativenumber
+set wildmode=longest,list
+set ttyfast
+set background=dark
+set termguicolors
+set laststatus=2
+set clipboard=unnamed,unnamedplus
+set hidden
+set completeopt=menuone,noinsert,noselect
+
+filetype plugin indent on
+syntax enable
+
+call plug#begin()
+Plug 'wakatime/vim-wakatime'
+Plug 'yukimura1227/vim-yazi'
+Plug 'nathanaelkane/vim-indent-guides'
+call plug#end()
+
+" Path to yazi executable (default: 'yazi')
+let g:yazi_executable = 'yazi'
+
+" Enable opening multiple files (default: 1)
+let g:yazi_open_multiple = 0
+
+" Replace netrw with yazi (default: 0)
+let g:yazi_replace_netrw = 1
+
+" Disable default key mappings (default: 0)
+let g:yazi_no_mappings = 1
+
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#2a2a2a
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#303030
