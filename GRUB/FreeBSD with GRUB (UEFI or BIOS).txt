@@ -1,3 +1,6 @@
+# /etc/grub.d/21_freebsd
+
+
 === UEFI ===
 
 #!/bin/sh
