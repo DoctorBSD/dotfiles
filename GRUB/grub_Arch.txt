@@ -3,7 +3,7 @@
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash nvidia-drm.modeset=1 usbcore.autosuspend=-1"
+GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 usbcore.autosuspend=-1"
 # For Sony Vaio SVF15323CXW
 #GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash nowatchdog acpi_osi=Linux acpi_enforce_resources=lax xhci_hcd.quirks=0x80 usbcore.initial_descriptor_timeout=100 tpm_tis.force=0 tpm_tis.ignore=1 usbcore.reset_on_resume=1"
 GRUB_CMDLINE_LINUX=""
