@@ -1,0 +1,13 @@
+#!/bin/sh
+exec tail -n +3 $0
+# /etc/grub.d/31_power (Reboot & Shutdown)
+
+menuentry "Reboot" {
+	insmod reboot
+	reboot
+}
+
+menuentry "Shutdown" {
+	insmod halt
+	halt
+}
