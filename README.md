@@ -1,3 +1,3 @@
-# **Configs**
+# **Dotfiles**
 
-__My personal *configs* xD__
+__My personal *dotconfigs* xD__
