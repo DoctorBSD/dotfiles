@@ -1,0 +1,3 @@
+setxkbmap -layout "us,ru" -option "grp:caps_toggle"
+export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
+xrandr --dpi 96
