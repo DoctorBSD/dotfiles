@@ -1,3 +1,8 @@
 # **Dotfiles**
 
-__My personal *dotconfigs* xD__
+My personal *dotconfigs* xD
+
+## **Cloning**
+```shell
+git clone https://github.com/DoctorBSD/dotfiles
+```
