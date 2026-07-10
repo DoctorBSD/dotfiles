@@ -1,4 +1,24 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/campbell.toml"
+"~/.config/alacritty/themes/themes/dark_pride.toml"
 ]
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+dimensions = { columns = 120, lines = 30 }
+decorations = "None"
+
+[font]
+size = 12.0
+normal = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Regular" }
+bold = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Bold" }
+italic = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Italic" }
+bold_italic = { family = "JetBrainsMonoNL Nerd Font Mono", style = "Bold Italic" }
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+
+[mouse]
+hide_when_typing = true
