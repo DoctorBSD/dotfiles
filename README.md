@@ -4,5 +4,5 @@ My personal *dotconfigs* xD
 
 ## **Cloning**
 ```shell
-git clone https://github.com/DoctorBSD/dotfiles
+git clone --recurse-submodules https://github.com/DoctorBSD/dotfiles.git
 ```
