@@ -1,3 +1,7 @@
 setxkbmap -layout "us,ru" -option "grp:caps_toggle"
 xrdb ~/.Xresources
+kbdd &
+xmodmap ~/.Xmodmap
 export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
+export BEMENU_BACKEND="x11"
+export BEMENU_OPTS="-i -l 10 -p 'Run:' --fn 'JetBrainsMonoNL Nerd Font Mono 12' --hb '#9b59b6' --hf '#000000'"
