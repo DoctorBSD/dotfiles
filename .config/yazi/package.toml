@@ -1,0 +1,17 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "bb758e2"
+hash = "e3260d0b1feded8c8e3ae3afa1169e30"
+
+[[plugin.deps]]
+use = "boydaihungst/gvfs"
+rev = "c5a0bb9"
+hash = "480fde69fef0bcaeb2c21a726f94412c"
+
+[[plugin.deps]]
+use = "grimandgreedy/ffmpeg-stats"
+rev = "7b62912"
+hash = "57c22b5874c3a589bfb01bdd3fda1221"
+
+[flavor]
+deps = []
