@@ -1,8 +1,55 @@
-setxkbmap -layout "us,ru" -option "grp:caps_toggle"
-xrdb ~/.Xresources
-kbdd &
-xmodmap ~/.Xmodmap
+#!/bin/sh
+# ~/.xprofile
+
+#-------------------------
+# 1. Environment variables
+#-------------------------
+
+# Theme for Qt applications
 export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
+
+#----------------------------------------------
+# 2. Configuring the keyboard and X11 resources
+#----------------------------------------------
+
+# Keyboard layout (US/RU, switching via CapsLock)
+setxkbmap -layout "us,ru" -option "grp:caps_toggle"
+
+# X11 User Resources
+if [ -f ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources
+fi
+
+if [ -f ~/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap
+fi
+
+#------------------------------------------
+# 3. Integration with systemd user services
+#------------------------------------------
+
+# Export variables to the user systemd instance
+if command -v systemctl >/dev/null 2>&1; then
+    if systemctl --user show-environment >/dev/null 2>&1; then
+        systemctl --user import-environment \
+            DISPLAY \
+            XAUTHORITY \
+            DBUS_SESSION_BUS_ADDRESS \
+            QT_QPA_PLATFORMTHEME
+    fi
+fi
+
+#----------------------------------
+# 4. Background processes (daemons)
+#----------------------------------
+
+# Simple per-window keyboard layout switching daemon
+kbdd &
+
+#---------------
+# 5. Old configs
+#---------------
+
 # bemenu cfg
 #export BEMENU_BACKEND="x11"
 #export BEMENU_OPTS="-i -l 10 -p 'Run:' --fn 'JetBrainsMonoNL Nerd Font Mono 12' --hb '#9b59b6' --hf '#000000'"
