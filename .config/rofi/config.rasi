@@ -1,5 +1,5 @@
 configuration {
-  modes: "drun,ssh,clipboard:greenclip print,power-menu:rofi-power-menu";
+  modes: "drun,ssh,power-menu:rofi-power-menu";
   font: "JetBrainsMonoNL Nerd Font Mono 12";
 /*	location: 0;*/
 /*	yoffset: 0;*/
