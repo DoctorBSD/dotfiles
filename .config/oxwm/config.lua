@@ -169,7 +169,7 @@ oxwm.gaps.set_outer(5, 5)
 -- - Send specific applications to specific workspaces
 -- - Configure window behavior based on title or class
 
-oxwm.rule.add({ class = "AyuGramDesktop", tag = 3 })
+-- oxwm.rule.add({ class = "AyuGramDesktop", tag = 3 })
 
 -- To find window properties, use xprop and click on the window
 -- WM_CLASS(STRING) shows both instance and class (instance, class)
@@ -250,7 +250,7 @@ oxwm.key.bind({ modkey }, "B", oxwm.spawn({ "brave" }))
 oxwm.key.bind({ modkey }, "E", oxwm.spawn({ "alacritty -e yazi" }))
 
 -- AyuGram
-oxwm.key.bind({ modkey }, "A", oxwm.spawn({ "flatpak run com.ayugram.desktop" }))
+-- oxwm.key.bind({ modkey }, "A", oxwm.spawn({ "flatpak run com.ayugram.desktop" }))
 
 -- Window state toggles
 oxwm.key.bind({ modkey, "Shift" }, "F", oxwm.client.toggle_fullscreen())
@@ -260,6 +260,8 @@ oxwm.key.bind({ modkey, "Shift" }, "Space", oxwm.client.toggle_floating())
 oxwm.key.bind({ modkey }, "F", oxwm.layout.set("normie"))
 oxwm.key.bind({ modkey }, "C", oxwm.layout.set("tiling"))
 oxwm.key.bind({ modkey }, "S", oxwm.layout.set("scrolling"))
+oxwm.key.bind({ modkey }, "M", oxwm.layout.set("monocle"))
+oxwm.key.bind({ modkey }, "G", oxwm.layout.set("grid"))
 --oxwm.key.bind({ modkey }, "X", oxwm.layout.set("tabbed"))
 
 -- Cycle through layouts
@@ -288,10 +290,10 @@ oxwm.key.bind({ modkey, "Shift" }, "Q", oxwm.quit())
 oxwm.key.bind({ modkey, "Shift" }, "R", oxwm.restart())
 
 -- Focus movement [1 for up in the stack, -1 for down]
-oxwm.key.bind({ modkey }, "H", oxwm.client.focus_stack(1))
-oxwm.key.bind({ modkey }, "Left", oxwm.client.focus_stack(1))
-oxwm.key.bind({ modkey }, "L", oxwm.client.focus_stack(-1))
-oxwm.key.bind({ modkey }, "Right", oxwm.client.focus_stack(-1))
+oxwm.key.bind({ modkey }, "L", oxwm.client.focus_stack(1))
+oxwm.key.bind({ modkey }, "Right", oxwm.client.focus_stack(1))
+oxwm.key.bind({ modkey }, "H", oxwm.client.focus_stack(-1))
+oxwm.key.bind({ modkey }, "Left", oxwm.client.focus_stack(-1))
 
 -- Window movement (swap position in stack)
 oxwm.key.bind({ modkey, "Shift" }, "L", oxwm.client.move_stack(1))
@@ -374,7 +376,7 @@ oxwm.key.chord({
 -- Commands to run once when OXWM starts
 -- Uncomment and modify these examples, or add your own
 
-oxwm.autostart("picom")
+oxwm.autostart("fastcompmgr -o 0.4 -C")
 oxwm.autostart("clipcatd")
 oxwm.autostart("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 oxwm.autostart("feh --bg-scale ~/Pictures/Wallpapers/lighting-up-the-sky-desktop-image-only.png")

@@ -1,17 +1,17 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "bb758e2"
-hash = "e3260d0b1feded8c8e3ae3afa1169e30"
+rev = "044c3cc"
+hash = "46cbdc05596a3ecd730b288e28c7079d"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "c5a0bb9"
-hash = "480fde69fef0bcaeb2c21a726f94412c"
+rev = "ebdb87c"
+hash = "69c24ef7e0a591864c76ac6e6dedc805"
 
 [[plugin.deps]]
-use = "grimandgreedy/ffmpeg-stats"
-rev = "7b62912"
-hash = "57c22b5874c3a589bfb01bdd3fda1221"
+use = "DoctorBSD/ffmpeg-stats"
+rev = "5f07c9a"
+hash = "27aca14c271c36fb2523cfacd7e3bfa1"
 
 [flavor]
 deps = []

@@ -6,7 +6,7 @@ sort_reverse   = true
 sort_dir_first = true
 show_hidden    = true
 show_symlink   = true
-linemode = "size_and_mtime"
+linemode       = "size_and_mtime"
 
 [plugin]
 prepend_preloaders = [
@@ -39,23 +39,23 @@ prepend_fetchers = [
 
 [opener]
 play = [
-	{ run = 'mpv "$@"', orphan = true, desc = "Play with mpv", for = "unix" }
+	{ run = "mpv %s", orphan = true, desc = "Play with mpv", for = "unix" }
 ]
 edit = [
-	{ run = 'vim "$@"', orphan = true, block = true, desc = "Edit with Vim", for = "unix" }
+	{ run = "vim %s", orphan = true, block = true, desc = "Edit with Vim", for = "unix" }
 ]
 open = [
-	{ run = 'xdg-open "$@"', orphan = true, desc = "Open with system default", for = "unix" }
+	{ run = "xdg-open %s", orphan = true, desc = "Open with system default", for = "unix" }
 ]
 view = [
-  { run = 'nsxiv -a "$@"', orphan = true, desc = "View with nsxiv", for = "unix" }
+	{ run = "nsxiv -a %s", orphan = true, desc = "View with nsxiv", for = "unix" }
 ]
 
 [open]
 rules = [
-	{ mime = "video/*", use = "play" },
-	{ mime = "audio/*", use = "play" },
-	{ mime = "text/*", use = "edit" },
-	{ mime = "image/*", use = "view" },
-	{ mime = "*", use = "open" },
+	{ mime = "video/*", use = ["play", "open"] },
+	{ mime = "audio/*", use = ["play", "open"] },
+	{ mime = "text/*", use = ["edit", "open"] },
+	{ mime = "image/*", use = ["view", "open"] },
+	{ mime = "*", use = ["open"] },
 ]
