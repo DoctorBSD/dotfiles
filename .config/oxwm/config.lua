@@ -52,7 +52,7 @@ local tags = { "1", "2", "3", "4", "5" }
 -- local tags = { "", "󰊯", "", "", "󰙯", "󱇤", "", "󱘶", "󰧮" } -- Example of nerd font icon tags
 
 -- Font for the status bar (use "fc-list" to see available fonts)
-local bar_font = "JetBrainsMonoNL Nerd Font Mono:style=Bold:size=10"
+local bar_font = "JetBrains Mono NL:style=Bold:size=10"
 
 -- Define your blocks
 -- Similar to widgets in qtile, or dwmblocks
@@ -224,10 +224,10 @@ oxwm.key.bind({ "Control", "Mod1" }, "Delete", oxwm.spawn({ "rofi -show power-me
 oxwm.key.bind(
 	{ "Mod1" },
 	"Print",
-	oxwm.spawn({ "maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png && xkbbell" })
+	oxwm.spawn({ "maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png" })
 )
-oxwm.key.bind({ "Shift" }, "Print", oxwm.spawn({ "maim -u -s | xclip -selection clipboard -t image/png && xkbbell" }))
-oxwm.key.bind({ "Control" }, "Print", oxwm.spawn({ "maim -u | xclip -selection clipboard -t image/png & xkbbell" }))
+oxwm.key.bind({ "Shift" }, "Print", oxwm.spawn({ "maim -u -s | xclip -selection clipboard -t image/png" }))
+oxwm.key.bind({ "Control" }, "Print", oxwm.spawn({ "maim -u | xclip -selection clipboard -t image/png" }))
 oxwm.key.bind({ modkey }, "Q", oxwm.client.kill())
 
 -- Keybind overlay - Shows important keybindings on screen
@@ -244,7 +244,7 @@ oxwm.key.bind({ "Mod4" }, "V", oxwm.spawn({ "clipcat-menu insert" }))
 oxwm.key.bind({ "Mod4", "Shift" }, "V", oxwm.spawn({ "clipcat-menu remove" }))
 
 -- Browser
-oxwm.key.bind({ modkey }, "B", oxwm.spawn({ "brave" }))
+oxwm.key.bind({ modkey }, "B", oxwm.spawn({ "brave-browser-stable" }))
 
 -- Yazi
 oxwm.key.bind({ modkey }, "E", oxwm.spawn({ "alacritty -e yazi" }))
@@ -376,8 +376,7 @@ oxwm.key.chord({
 -- Commands to run once when OXWM starts
 -- Uncomment and modify these examples, or add your own
 
-oxwm.autostart("fastcompmgr -o 0.4 -C")
+oxwm.autostart("picom -b")
 oxwm.autostart("clipcatd")
-oxwm.autostart("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-oxwm.autostart("feh --bg-scale ~/Pictures/Wallpapers/lighting-up-the-sky-desktop-image-only.png")
-oxwm.autostart('nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"')
+oxwm.autostart("/usr/libexec/polkit-gnome-authentication-agent-1")
+oxwm.autostart("feh --bg-scale ~/Pictures/Wallpapers/kevin-schmid-zdsMxyby0nE-unsplash.jpg")
