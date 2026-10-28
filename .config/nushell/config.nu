@@ -11,48 +11,55 @@ $env.EDITOR = "vim"
 
 # ==== ALIASES ====
 
-# === (Samba, TorrServer, SDDM) ===
+# === (Samba, TorrServer) ===
 
-def samba_start []   { sudo systemctl start smb.service nmb.service }
-def samba_restart [] { sudo systemctl restart smb.service nmb.service }
-def samba_stop []    { sudo systemctl stop smb.service nmb.service }
-def samba_status []  { sudo systemctl status smb.service nmb.service }
+#def samba_start []   { sudo systemctl start smb.service nmb.service }
+#def samba_restart [] { sudo systemctl restart smb.service nmb.service }
+#def samba_stop []    { sudo systemctl stop smb.service nmb.service }
+#def samba_status []  { sudo systemctl status smb.service nmb.service }
 
-def torr_start []   { sudo systemctl start torrserver.service }
-def torr_restart [] { sudo systemctl restart torrserver.service }
-def torr_stop []    { sudo systemctl stop torrserver.service }
-def torr_status []  { sudo systemctl status torrserver.service }
-
-def sdst [] { sudo systemctl start sddm }
-def sdsp [] { sudo systemctl stop sddm }
-def sdsr [] { sudo systemctl restart sddm }
+#def torr_start []   { sudo systemctl start torrserver.service }
+#def torr_restart [] { sudo systemctl restart torrserver.service }
+#def torr_stop []    { sudo systemctl stop torrserver.service }
+#def torr_status []  { sudo systemctl status torrserver.service }
 
 # === Utilities ===
 
-alias vlc = flatpak run org.videolan.VLC
 alias ll = ls -l
 alias ls = ls -a
 alias ff = fastfetch
-alias fl = flatpak update
-alias pacup = sudo pacman -Syu
+#alias fl = flatpak update
 alias wttr = curl wttr.in
-alias update-grub = sudo grub-mkconfig -o /boot/grub/grub.cfg
+alias update-grub = doas grub-mkconfig -o /boot/grub/grub.cfg
 alias v = vim
-alias sv = sudoedit
-alias artix = ssh ridge@192.168.1.5
+alias dv = doasedit
+alias sx = startx
+alias ea = doas emaint -a sync
+alias es = doas emerge -avuDN @world
+alias esx = doas emerge -avuDN @world --exclude sys-kernel/gentoo-kernel
+alias ec = doas emerge -cav
 
 # === Logs and Diagnostics ===
 
-def jopa [] { journalctl -b -0 -p err..emerg }
-def dudush [] { sudo dmesg -TH --level=err+ }
-def ss [] { sys temp | sort-by unit | first 4 }
+def dudush [] { doas dmesg -TH --level=err+ }
+def tt [] { sys temp | sort-by unit | first 6 }
+#def jopa [] { journalctl -b -0 -p err..emerg }#
 
 # === Power Management ===
 
 def son [] {
-    sudo -v
-    sleep 10sec
-    sudo systemctl suspend
+    sleep 3sec
+    loginctl suspend
+}
+
+def off [] {
+    sleep 3sec
+    loginctl poweroff
+}
+
+def rec [] {
+    sleep 3sec
+    loginctl reboot
 }
 
 # === Changing the keyboard layout ===
@@ -83,7 +90,7 @@ let carapace_completer = {|spans: list<string>|
     carapace $spans.0 nushell ...$spans
     | from json
     | if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }
-}
+    }
 
 
 $env.config.completions.external = {
