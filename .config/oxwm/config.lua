@@ -62,6 +62,7 @@ local blocks = {
 		interval = 5,
 		color = colors.light_blue,
 		underline = true,
+	  click = "alacritty -e btop",
 	}),
 	oxwm.bar.block.static({
 		text = "│",
@@ -76,6 +77,20 @@ local blocks = {
 		color = colors.red,
 		underline = true,
 	}),
+	oxwm.bar.block.static({
+		text = "│",
+		interval = 999999999,
+		color = colors.lavender,
+		underline = false,
+	}),
+	oxwm.bar.block.shell({
+		format = "{}",
+		command = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
+		interval = 999999999,
+		color = colors.green,
+		underline = true,
+	}),
+
 	oxwm.bar.block.static({
 		text = "│",
 		interval = 999999999,
@@ -214,7 +229,7 @@ oxwm.bar.set_scheme_urgent(colors.red, colors.bg, colors.red)
 
 -- Basic window management
 
-oxwm.key.bind({ modkey }, "T", oxwm.spawn_terminal())
+-- oxwm.key.bind({ modkey }, "T", oxwm.spawn_terminal())
 
 -- Launch Rofi
 oxwm.key.bind({ modkey }, "D", oxwm.spawn({ "rofi -show drun" }))
@@ -248,6 +263,9 @@ oxwm.key.bind({ modkey }, "B", oxwm.spawn({ "brave-browser-stable" }))
 
 -- Yazi
 oxwm.key.bind({ modkey }, "E", oxwm.spawn({ "alacritty -e yazi" }))
+
+-- Zellij
+oxwm.key.bind({ modkey }, "T", oxwm.spawn({ "alacritty -e zellij" }))
 
 -- AyuGram
 -- oxwm.key.bind({ modkey }, "A", oxwm.spawn({ "flatpak run com.ayugram.desktop" }))
@@ -379,4 +397,4 @@ oxwm.key.chord({
 oxwm.autostart("picom -b")
 oxwm.autostart("clipcatd")
 oxwm.autostart("/usr/libexec/polkit-gnome-authentication-agent-1")
-oxwm.autostart("feh --bg-scale ~/Pictures/Wallpapers/kevin-schmid-zdsMxyby0nE-unsplash.jpg")
+oxwm.autostart("feh --bg-scale ~/Pictures/Wallpapers/tahlia-doyle-NY7Fop0mkSg-unsplash.jpg")
